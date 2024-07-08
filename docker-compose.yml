@@ -9,4 +9,4 @@ services:
       POSTGRES_PASSWORD: 'postgres'
       POSTGRES_DB: 'postgres'
     volumes:
-      - ./init:/docker-entrypoint-initdb.d/
+      - ./initdb:/docker-entrypoint-initdb.d/

@@ -1,4 +1,4 @@
-package ru.evilnoob.jpa_search;
+package ru.evilnoob.jpasearch;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

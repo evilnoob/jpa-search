@@ -13,13 +13,19 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import java.util.List;
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "user")
+@NoArgsConstructor
+@AllArgsConstructor
 public class User {
 
     @Id
@@ -43,5 +49,9 @@ public class User {
     @OneToMany(mappedBy = "parentUser", fetch = FetchType.LAZY)
     @Fetch(FetchMode.SUBSELECT)
     private List<User> childUser;
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @Fetch(FetchMode.SUBSELECT)
+    private List<UserLogin> userLogins;
 
 }
